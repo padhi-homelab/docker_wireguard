@@ -1,0 +1,8 @@
+#!/bin/bash
+
+IFS=' ' read -r -a CONFIG_LIST <<< "$CONFIG_FILE_NAME"
+NUM_CONFIGS=${#CONFIG_LIST[@]}
+RND_INDEX=$((RANDOM % NUM_CONFIGS))
+
+SELECTED_CONFIG_FILE_NAME=${CONFIG_LIST[$RND_INDEX]}
+cp /config/"$SELECTED_CONFIG_FILE_NAME" /etc/wireguard/wg0.conf
