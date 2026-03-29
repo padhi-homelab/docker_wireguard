@@ -2,6 +2,7 @@
 
 set -Eumo pipefail
 
+echo -n > /etc/resolv.conf
 DNS_ENTRY=$(grep -i "^DNS" /etc/wireguard/wg0.conf | cut -d'=' -f2)
 if [ -n "$DNS_ENTRY" ]; then
     for dns_ip in $(echo "$DNS_ENTRY" | tr ',' ' '); do
