@@ -1,4 +1,4 @@
-FROM padhihomelab/alpine-base:3.23.3_0.19.0_0.3
+FROM padhihomelab/alpine-base:3.24.2_0.19.0_0.3
 
 
 ENV ENTRYPOINT_RUN_AS_ROOT=1
@@ -27,7 +27,7 @@ RUN chmod +x /usr/local/bin/start-wg \
             bind-tools \
             dante-server \
             ip6tables \
-            wireguard-tools=1.0.20250521-r1
+            wireguard-tools=1.0.20260223-r0
 
 RUN sed -i 's/cmd sysctl -q net.ipv4.conf.all.src_valid_mark=1//g' \
            /usr/bin/wg-quick
